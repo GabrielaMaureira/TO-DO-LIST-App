@@ -36,4 +36,17 @@ class ApplicationController extends Controller {
         $this->view->content = $model->singleTask($_GET["id"]);
     }
 
+    public function editTaskAction(){ 
+        $model = new TaskModel();
+        $this->view->content = $model->singleTask($_GET['id']);  
+        if(!empty($_POST)){
+            $model->editTask($_GET['id'], 
+                            $_POST['task'], 
+                            $_POST['status'], 
+                            $_POST['startDate'], 
+                            $_POST['endDate']);
+            header('Location: ' . $this->_baseUrl());
+        } 
+    }
+
 }
