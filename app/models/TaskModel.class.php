@@ -39,7 +39,7 @@ class TaskModel extends Model
         $this->writeJson($this->tasks);
     }
 
-    public function editTask($id, $title, $status, $startDate, $endDate){ //per acabar
+    public function editTask($id, $title, $status, $startDate, $endDate){ 
         foreach($this->tasks as $i => $task){
             if($task['id'] == $id){
                 $this->tasks[$i]['task'] = $title;
