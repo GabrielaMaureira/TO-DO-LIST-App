@@ -30,4 +30,10 @@ class ApplicationController extends Controller {
 
         }
     }
+
+    public function readTaskAction(){
+        $model = new TaskModel;
+        $this->view->content = $model->singleTask($_GET["id"]);
+    }
+
 }
