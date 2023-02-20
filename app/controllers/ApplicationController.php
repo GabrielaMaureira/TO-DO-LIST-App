@@ -49,4 +49,11 @@ class ApplicationController extends Controller {
         } 
     }
 
+    public function deleteTaskAction(){
+        $model = new TaskModel;
+        $this->view->content = $model->deleteTask($_GET['id']);
+        header('Location: ' . $this->_baseUrl()); 
+
+    }
+
 }
