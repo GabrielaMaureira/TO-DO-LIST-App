@@ -53,6 +53,17 @@ class TaskModel extends Model
 
     }
 
+    public function deleteTask($id){
+        foreach ($this->tasks as $i => $task) {
+            if ($task['id'] == $id) {
+                unset($this->tasks[$i]);
+                $this->writeJson($this->tasks);
+            }
+        }
+        return $this->tasks;
+       
+    }
+
     
 
 
