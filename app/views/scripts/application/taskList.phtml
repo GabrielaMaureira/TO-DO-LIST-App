@@ -1,0 +1,85 @@
+<?php $tasks = $this->content; ?>
+<!--print_r($tasks); -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/8ca7133f11.js" crossorigin="anonymous"></script>
+
+    <title>Home</title>
+</head>
+<body>
+  
+<div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+
+        <!-- COLUMNS -->
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+                <th scope="col" class="px-6 py-3">
+                    ID
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    TASK
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    STATUS
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    START
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    FINISH
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    USER
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    
+                </th>   
+            </tr>
+        </thead>
+        
+        <tbody>
+
+        <!-- ROWS -->
+        <?php foreach($tasks as $task): ?>
+            <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+               
+                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    <?=$task['id'];?>
+                </th>
+                <td class="px-6 py-4">
+                    <?=$task['task'];?>
+                </td>
+                <td class="px-6 py-4">
+                    <?=$task['status'];?>
+                </td>
+                <td class="px-6 py-4">
+                    <?=$task['startDate'];?>
+                </td>
+                <td class="px-6 py-4">
+                    <?=$task['endDate'];?>
+                </td>
+                <td class="px-6 py-4">
+                    <?=$task['user'];?>
+                </td>
+                <td class="px-6 py-4">
+                    <a href="read?id=<?php echo $task['id'] ?>" class="font-medium text-teal-500 dark:text-blue-500 hover:underline" ><i class="fa-sharp fa-solid fa-eye"></i></a>
+                    <a href="edit?id=<?php echo $task['id'] ?>" class="font-medium text-teal-500 dark:text-blue-500 hover:underline" ><i class="fa-sharp fa-solid fa-pen"></i></a>
+                    <a href="delete?id=<?php echo $task['id'] ?>" class="font-medium text-teal-500 dark:text-blue-500 hover:underline" ><i class="fa-sharp fa-solid fa-trash"></i></a>
+                
+                </td>
+            </tr>
+            <?php endforeach; ?>
+            
+        </tbody>
+    </table>
+    </div>
+</body>
+</html>
+
+
